@@ -1,4 +1,4 @@
-package com.blablacar;
+package com.blablacar.mowerAlgorithm;
 
 public class Main {
 

@@ -13,33 +13,36 @@ public class Position {
         return new Position(x,y);
     }
 
-    public int getX() {
-        return x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
     public void moveBy(Orientation orientation){
         switch (orientation) {
-            case N : incrementY(); break;
-            case E : incrementX(); break;
-            case S : decrementY(); break;
-            case W : decrementX(); break;
+            case N -> incrementY();
+            case E -> incrementX();
+            case S -> decrementY();
+            case W -> decrementX();
         }
     }
 
     public void incrementX(){
         x++;
     }
+
     public void decrementX() {
         x--;
     }
+
     public void incrementY(){
         y++;
     }
+
     public void decrementY() {
         y--;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
     }
 }

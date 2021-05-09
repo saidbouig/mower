@@ -17,10 +17,10 @@ public class Mower {
         position.setLawnBoundary(LawnBoundary.of(lawn.getWidth(), lawn.getHeight(), 0,0));
     }
 
-    public void moveToForward(){
+    public void moveToForward(Lawn lawn){
         if(position.getLawnBoundary()!=null){
             Position previewPosition = previewMoveToForward();
-            if(previewPosition.isWithinLawnBoundaries()){
+            if(previewPosition.isWithinLawnBoundaries() && lawn.authorizedToMove(this, previewPosition)){
                 this.position = previewPosition;
             }
         }else{

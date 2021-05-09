@@ -2,22 +2,22 @@ package com.blablacar.mowerAlgorithm.domain;
 
 public class Lawn {
     private int width;
-    private int highth;
+    private int height;
 
-    private Lawn(int width, int highth) {
+    private Lawn(int width, int height) {
         this.width = width;
-        this.highth = highth;
+        this.height = height;
     }
 
-    public static Lawn of(int width, int highth){
-        return new Lawn(width,highth);
+    public static Lawn of(int width, int height){
+        return new Lawn(width,height);
     }
 
     public int getWidth() {
         return width;
     }
 
-    public int getHighth() {
-        return highth;
+    public int getHeight() {
+        return height;
     }
 }

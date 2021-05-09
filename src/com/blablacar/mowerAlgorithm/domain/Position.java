@@ -13,10 +13,29 @@ public class Position {
         this.y = y;
     }
 
+    public Position(int x, int y, int x_max_boundary, int y_max_boundary, int x_min_boundary, int y_min_boundary) {
+        this.x = x;
+        this.y = y;
+        this.x_max_boundary = x_max_boundary;
+        this.y_max_boundary = y_max_boundary;
+        this.x_min_boundary = x_min_boundary;
+        this.y_min_boundary = y_min_boundary;
+    }
+
     public static Position of(int x, int y){
         return new Position(x,y);
     }
 
+    public static Position from(Position position){
+        return new Position(
+                position.getX(),
+                position.getY(),
+                position.getX_max_boundary(),
+                position.getY_max_boundary(),
+                position.getX_min_boundary(),
+                position.getY_min_boundary()
+        );
+    }
     public void moveBy(Orientation orientation){
         switch (orientation) {
             case N -> incrementY();
@@ -27,19 +46,19 @@ public class Position {
     }
 
     public void incrementX() {
-        x = Math.min(x + 1, x_max_boundary);
+        x++;
     }
 
     public void decrementX() {
-        x = Math.max(x - 1, x_min_boundary);
+        x--;
     }
 
     public void incrementY() {
-        y = Math.min(y + 1, y_max_boundary);
+        y++;
     }
 
     public void decrementY() {
-        y = Math.max(y - 1, y_min_boundary);
+        y--;
     }
 
     public int getX() {
@@ -48,6 +67,22 @@ public class Position {
 
     public int getY() {
         return y;
+    }
+
+    public int getX_max_boundary() {
+        return x_max_boundary;
+    }
+
+    public int getY_max_boundary() {
+        return y_max_boundary;
+    }
+
+    public int getX_min_boundary() {
+        return x_min_boundary;
+    }
+
+    public int getY_min_boundary() {
+        return y_min_boundary;
     }
 
     public void setX_max_boundary(int x_max_boundary) {
@@ -64,5 +99,9 @@ public class Position {
 
     public void setY_min_boundary(int y_min_boundary) {
         this.y_min_boundary = y_min_boundary;
+    }
+
+    public boolean isWithinLawnBoundaries() {
+        return x>= x_min_boundary && x<x_max_boundary && y>= y_min_boundary && y< y_max_boundary;
     }
 }

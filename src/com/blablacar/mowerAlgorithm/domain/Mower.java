@@ -15,13 +15,22 @@ public class Mower {
 
     public void applyBoundariesFrom(Lawn lawn){
         position.setX_max_boundary(lawn.getWidth());
-        position.setY_max_boundary(lawn.getHighth());
+        position.setY_max_boundary(lawn.getHeight());
         position.setX_min_boundary(0);
         position.setY_min_boundary(0);
     }
 
     public void moveToForward(){
-        position.moveBy(orientation);
+        Position previewPosition = previewMoveToForward();
+        if(previewPosition.isWithinLawnBoundaries()){
+            this.position = previewPosition;
+        }
+    }
+
+    public Position previewMoveToForward(){
+        Position previewPosition = Position.from(position);
+        previewPosition.moveBy(orientation);
+        return previewPosition;
     }
 
     public void rotateToRight(){

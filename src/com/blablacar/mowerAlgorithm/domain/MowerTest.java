@@ -41,4 +41,17 @@ class MowerTest {
         assertEquals(mower.getOrientation(), Orientation.E);
     }
 
+    @Test
+    void should_stay_idle_when_move_to_lawn_boundary(){
+        Mower mower = Mower.of(Position.of(0,0),Orientation.S);
+        Lawn lawn = Lawn.of(2,2);
+        mower.applyBoundariesFrom(lawn);
+        mower.moveToForward();
+        mower.moveToForward();
+        mower.moveToForward();
+        assertEquals(mower.getPosition().getX(), 0);
+        assertEquals(mower.getPosition().getY(), 0);
+        assertEquals(mower.getOrientation(), Orientation.S);
+    }
+
 }

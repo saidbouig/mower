@@ -13,6 +13,13 @@ public class Mower {
         return new Mower(position, orientation);
     }
 
+    public void applyBoundariesFrom(Lawn lawn){
+        position.setX_max_boundary(lawn.getWidth());
+        position.setY_max_boundary(lawn.getHighth());
+        position.setX_min_boundary(0);
+        position.setY_min_boundary(0);
+    }
+
     public void moveToForward(){
         position.moveBy(orientation);
     }

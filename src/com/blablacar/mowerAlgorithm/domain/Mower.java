@@ -14,16 +14,17 @@ public class Mower {
     }
 
     public void applyBoundariesFrom(Lawn lawn){
-        position.setX_max_boundary(lawn.getWidth());
-        position.setY_max_boundary(lawn.getHeight());
-        position.setX_min_boundary(0);
-        position.setY_min_boundary(0);
+        position.setLawnBoundary(LawnBoundary.of(lawn.getWidth(), lawn.getHeight(), 0,0));
     }
 
     public void moveToForward(){
-        Position previewPosition = previewMoveToForward();
-        if(previewPosition.isWithinLawnBoundaries()){
-            this.position = previewPosition;
+        if(position.getLawnBoundary()!=null){
+            Position previewPosition = previewMoveToForward();
+            if(previewPosition.isWithinLawnBoundaries()){
+                this.position = previewPosition;
+            }
+        }else{
+            position.moveBy(orientation);
         }
     }
 

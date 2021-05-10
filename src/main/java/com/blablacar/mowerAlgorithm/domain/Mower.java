@@ -14,7 +14,7 @@ public class Mower {
     }
 
     public void applyBoundariesFrom(Lawn lawn){
-        position.setLawnBoundary(LawnBoundary.of(lawn.getWidth(), lawn.getHeight(), 0,0));
+        position.setLawnBoundary(LawnBoundary.of(lawn.getWidth(), lawn.getHeight()));
     }
 
     public void moveToForward(Lawn lawn){

@@ -13,8 +13,8 @@ public class LawnBoundary {
         this.y_min_boundary = y_min_boundary;
     }
 
-    public static LawnBoundary of(int x_max_boundary, int y_max_boundary, int x_min_boundary, int y_min_boundary){
-        return new LawnBoundary(x_max_boundary, y_max_boundary, x_min_boundary, y_min_boundary);
+    public static LawnBoundary of(int x_max_boundary, int y_max_boundary){
+        return new LawnBoundary(x_max_boundary, y_max_boundary, 0, 0);
     }
 
     public static LawnBoundary from(LawnBoundary lawnBoundary) {

@@ -9,8 +9,8 @@ class PositionTest {
     @Test
     public void should_create_position_from_coordinates(){
         Position position = Position.of(10, 20);
-        assertEquals(position.getX(), 10);
-        assertEquals(position.getY(), 20);
+        assertEquals(10, position.getX());
+        assertEquals(20, position.getY());
     }
 
     @Test
@@ -18,20 +18,20 @@ class PositionTest {
         Position position = Position.of(0,0);
 
         position.moveBy(Orientation.N);
-        assertEquals(position.getX(),0);
-        assertEquals(position.getY(),1);
+        assertEquals(0, position.getX());
+        assertEquals(1, position.getY());
 
         position.moveBy(Orientation.E);
-        assertEquals(position.getX(),1);
-        assertEquals(position.getY(),1);
+        assertEquals(1, position.getX());
+        assertEquals(1, position.getY());
 
         position.moveBy(Orientation.S);
-        assertEquals(position.getX(),1);
-        assertEquals(position.getY(),0);
+        assertEquals(1, position.getX());
+        assertEquals(0, position.getY());
 
         position.moveBy(Orientation.W);
-        assertEquals(position.getX(),0);
-        assertEquals(position.getY(),0);
+        assertEquals(0, position.getX());
+        assertEquals(0, position.getY());
     }
 
 }

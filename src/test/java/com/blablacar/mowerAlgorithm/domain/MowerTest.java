@@ -70,13 +70,13 @@ class MowerTest {
 
         mower_1.moveToForward(lawn);
 
-        assertEquals(mower_1.getPosition().getX(), 0);
-        assertEquals(mower_1.getPosition().getY(), 0);
-        assertEquals(mower_1.getOrientation(), Orientation.N);
+        assertEquals(0, mower_1.getPosition().getX());
+        assertEquals(0, mower_1.getPosition().getY());
+        assertEquals(Orientation.N, mower_1.getOrientation());
 
-        assertEquals(mower_2.getPosition().getX(), 0);
-        assertEquals(mower_2.getPosition().getY(), 1);
-        assertEquals(mower_2.getOrientation(), Orientation.N);
+        assertEquals(0, mower_2.getPosition().getX());
+        assertEquals(1, mower_2.getPosition().getY());
+        assertEquals(Orientation.N, mower_2.getOrientation());
 
     }
 

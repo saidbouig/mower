@@ -2,7 +2,7 @@ package com.blablacar.mowerAlgorithm.domain;
 
 import java.util.List;
 
-public class MowerAgent extends Thread{
+public class MowerAgent {
     private final Mower mower;
     private final Lawn lawn;
     private final List<Instruction> instructions;
@@ -25,5 +25,9 @@ public class MowerAgent extends Thread{
                 case L : mower.rotateToLeft(); break;
             }
         });
+    }
+
+    public Mower getMower() {
+        return mower;
     }
 }

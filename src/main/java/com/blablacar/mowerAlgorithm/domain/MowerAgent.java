@@ -2,7 +2,7 @@ package com.blablacar.mowerAlgorithm.domain;
 
 import java.util.List;
 
-public class MowerAgent {
+public class MowerAgent extends Thread{
     private final Mower mower;
     private final Lawn lawn;
     private final List<Instruction> instructions;

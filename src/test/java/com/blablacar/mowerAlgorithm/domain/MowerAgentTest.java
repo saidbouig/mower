@@ -19,9 +19,9 @@ class MowerAgentTest {
         MowerAgent mowerAgent = MowerAgent.of(mower, lawn, asList(Instruction.F, Instruction.F));
         mowerAgent.runCommands();
 
-        assertEquals(mowerAgent.getMower().getOrientation(), Orientation.N);
-        assertEquals(mowerAgent.getMower().getPosition().getX(), 0);
-        assertEquals(mowerAgent.getMower().getPosition().getY(), 1);
+        assertEquals(Orientation.N, mowerAgent.getMower().getOrientation());
+        assertEquals(0, mowerAgent.getMower().getPosition().getX());
+        assertEquals(1, mowerAgent.getMower().getPosition().getY());
 
 
     }

@@ -1,8 +1,8 @@
 package com.blablacar.mowerAlgorithm.domain;
 
 public class Position {
-    private int x;
-    private int y;
+    volatile private int x;
+    volatile private int y;
     private LawnBoundary lawnBoundary;
 
     public LawnBoundary getLawnBoundary() {

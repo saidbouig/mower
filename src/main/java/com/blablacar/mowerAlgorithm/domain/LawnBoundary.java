@@ -1,10 +1,10 @@
 package com.blablacar.mowerAlgorithm.domain;
 
 public class LawnBoundary {
-    private int x_max_boundary;
-    private int y_max_boundary;
-    private int x_min_boundary;
-    private int y_min_boundary;
+    private final int x_max_boundary;
+    private final int y_max_boundary;
+    private final int x_min_boundary;
+    private final int y_min_boundary;
 
     private LawnBoundary(int x_max_boundary, int y_max_boundary, int x_min_boundary, int y_min_boundary) {
         this.x_max_boundary = x_max_boundary;

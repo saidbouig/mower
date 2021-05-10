@@ -36,18 +36,18 @@ public class Mower {
 
     public void rotateToRight(){
         switch (orientation){
-            case N -> orientation = Orientation.E;
-            case E -> orientation = Orientation.S;
-            case S -> orientation = Orientation.W;
-            case W -> orientation = Orientation.N;
+            case N : orientation = Orientation.E; break;
+            case E : orientation = Orientation.S; break;
+            case S : orientation = Orientation.W; break;
+            case W : orientation = Orientation.N; break;
         }
     }
     public void rotateToLeft(){
         switch (orientation){
-            case N -> orientation = Orientation.W;
-            case W -> orientation = Orientation.S;
-            case S -> orientation = Orientation.E;
-            case E -> orientation = Orientation.N;
+            case N : orientation = Orientation.W; break;
+            case W : orientation = Orientation.S; break;
+            case S : orientation = Orientation.E; break;
+            case E : orientation = Orientation.N; break;
         }
     }
 

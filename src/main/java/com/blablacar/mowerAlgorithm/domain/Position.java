@@ -18,7 +18,7 @@ public class Position {
         this.y = y;
     }
 
-    public Position(int x, int y, LawnBoundary lawnBoundary) {
+    private Position(int x, int y, LawnBoundary lawnBoundary) {
         this.x = x;
         this.y = y;
         this.lawnBoundary = lawnBoundary;
@@ -36,10 +36,10 @@ public class Position {
     }
     public void moveBy(Orientation orientation){
         switch (orientation) {
-            case N -> incrementY();
-            case E -> incrementX();
-            case S -> decrementY();
-            case W -> decrementX();
+            case N : incrementY(); break;
+            case E : incrementX(); break;
+            case S : decrementY(); break;
+            case W : decrementX(); break;
         }
     }
 

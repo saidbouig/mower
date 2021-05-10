@@ -5,7 +5,7 @@ import java.util.List;
 public class Lawn {
     private final int width;
     private final int height;
-    private List<Mower> mowers;
+    private final List<Mower> mowers;
 
     private Lawn(int width, int height, List<Mower> mowers) {
         this.width = width;

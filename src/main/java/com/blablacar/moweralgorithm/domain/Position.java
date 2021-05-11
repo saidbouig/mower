@@ -3,8 +3,8 @@ package com.blablacar.moweralgorithm.domain;
 import java.util.Objects;
 
 public class Position {
-    volatile private int x;
-    volatile private int y;
+    private volatile int x;
+    private volatile int y;
     private LawnBoundary lawnBoundary;
 
     public LawnBoundary getLawnBoundary() {

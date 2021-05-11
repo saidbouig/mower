@@ -32,9 +32,9 @@ public class Lawn implements ILawn {
 
     @Override
     public boolean isAuthorizedToMove(Mower mower, Position previewPosition) {
-        return mowers.stream().map(Mower::getPosition)
-                .filter(m -> ! (m.equals(mower)))
-                .noneMatch(m -> m.getX() == previewPosition.getX() && m.getY() == previewPosition.getY());
+        return mowers.stream()
+            .filter(m -> ! (m.equals(mower)))
+            .noneMatch(m -> m.getPosition().getX() == previewPosition.getX() && m.getPosition().getY() == previewPosition.getY());
     }
 
     public void setMowers(List<Mower> mowers) {

@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 public class Simulation {
 
@@ -18,15 +19,19 @@ public class Simulation {
         return new Simulation(mowerAgents);
     }
 
-    public void run() {
+    public void run() throws InterruptedException {
         ExecutorService executorService = Executors.newFixedThreadPool(mowerAgents.size());
-        mowerAgents.forEach(mowerAgent -> {
-            try {
-                String result = executorService.submit(mowerAgent).get();
-                System.out.println(result);
-            } catch (InterruptedException | ExecutionException e) {
-                e.printStackTrace();
-            }
-        });
+        try {
+            executorService.invokeAll(mowerAgents).forEach(stringFuture -> {
+                try {
+                    System.out.println(stringFuture.get());
+                } catch (InterruptedException | ExecutionException e) {
+                    e.printStackTrace();
+                }
+            });
+        } catch (InterruptedException e) {
+            executorService.shutdown();
+            executorService.awaitTermination(10_000L, TimeUnit.MILLISECONDS );
+        }
     }
 }

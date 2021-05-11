@@ -20,17 +20,6 @@ public class MowerAgent implements Callable<String> {
         return new MowerAgent(mower, lawn, instructions);
     }
 
-    public void runCommands(){
-        instructions.forEach(instruction -> {
-            switch (instruction)  {
-                case F : mower.moveToForward((Lawn) lawn); break;
-                case R : mower.rotateToRight(); break;
-                case L : mower.rotateToLeft(); break;
-            }
-        });
-        System.out.println(this);
-    }
-
     @Override
     public String toString() {
         return mower.toString();

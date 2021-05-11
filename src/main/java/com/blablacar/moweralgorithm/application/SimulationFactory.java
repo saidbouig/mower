@@ -26,6 +26,4 @@ public class SimulationFactory {
 
         return Simulation.of(agents);
     }
-
-
 }

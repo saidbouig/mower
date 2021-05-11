@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.util.List;
+import java.util.Objects;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -19,7 +20,6 @@ class SimulationFileReaderTest {
         SimulationFileReader simulationFileReader = new SimulationFileReader();
         List<String> lines = simulationFileReader.read(getPath("mower.txt"));
         assertEquals("5 5 1 2 N LFLFLFLFF 3 3 E FFRFFRFRRF 0 1 E FFFFLFFF 1 0 N FFFFF".trim(), String.join(" ", lines));
-
     }
 
 
@@ -39,7 +39,7 @@ class SimulationFileReaderTest {
      * un-existed input file test.
      */
     @Test
-    public void should_throw_exception_when_file_not_exists() {
+    public void should_throw_exception_when_file_does_not_exist() {
         assertThrows(NullPointerException.class, () -> {
             getPath("un_existed_file.txt");
         });
@@ -49,7 +49,7 @@ class SimulationFileReaderTest {
 
     private String getPath(final String nameFile) {
         ClassLoader classLoader = getClass().getClassLoader();
-        File file = new File(classLoader.getResource(nameFile).getFile());
+        File file = new File(Objects.requireNonNull(classLoader.getResource(nameFile)).getFile());
         return file.getAbsolutePath();
     }
 

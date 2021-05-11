@@ -69,9 +69,9 @@ public class Position {
 
 
     public boolean isWithinLawnBoundaries() {
-        return x>= lawnBoundary.getX_min_boundary()
-                && x<lawnBoundary.getX_max_boundary()
-                && y>= lawnBoundary.getY_min_boundary()
-                && y< lawnBoundary.getY_max_boundary();
+        return x>= lawnBoundary.getX_min()
+                && x<lawnBoundary.getX_max()
+                && y>= lawnBoundary.getY_min()
+                && y< lawnBoundary.getY_max();
     }
 }

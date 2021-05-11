@@ -7,6 +7,7 @@ public class Lawn implements ILawn {
     private final int height;
     private List<Mower> mowers;
 
+
     private Lawn(int width, int height, List<Mower> mowers) {
         this.width = width;
         this.height = height;
@@ -32,7 +33,7 @@ public class Lawn implements ILawn {
     @Override
     public boolean isAuthorizedToMove(Mower mower, Position previewPosition) {
         return mowers.stream().map(Mower::getPosition)
-                .filter(m -> ! (m.getX() == mower.getPosition().getX() && m.getY() == mower.getPosition().getY()))
+                .filter(m -> ! (m.equals(mower)))
                 .noneMatch(m -> m.getX() == previewPosition.getX() && m.getY() == previewPosition.getY());
     }
 

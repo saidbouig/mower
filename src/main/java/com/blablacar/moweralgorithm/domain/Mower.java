@@ -1,5 +1,7 @@
 package com.blablacar.moweralgorithm.domain;
 
+import java.util.Objects;
+
 public class Mower implements IMower {
     private Position position;
     private Orientation orientation;
@@ -63,5 +65,19 @@ public class Mower implements IMower {
     @Override
     public String toString() {
         return position.getX() + " " + position.getY() + " " + orientation.name();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Mower mower = (Mower) o;
+        return Objects.equals(position, mower.position) &&
+                orientation == mower.orientation;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(position, orientation);
     }
 }

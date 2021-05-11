@@ -1,5 +1,7 @@
 package com.blablacar.moweralgorithm.domain;
 
+import java.util.Objects;
+
 public class Position {
     volatile private int x;
     volatile private int y;
@@ -73,5 +75,20 @@ public class Position {
                 && x < lawnBoundary.getX_max()
                 && y >= lawnBoundary.getY_min()
                 && y < lawnBoundary.getY_max();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Position position = (Position) o;
+        return x == position.x &&
+                y == position.y &&
+                Objects.equals(lawnBoundary, position.lawnBoundary);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(x, y, lawnBoundary);
     }
 }

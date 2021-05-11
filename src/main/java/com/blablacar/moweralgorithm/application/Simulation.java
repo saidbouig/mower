@@ -2,6 +2,9 @@ package com.blablacar.moweralgorithm.application;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class Simulation {
 
@@ -15,10 +18,15 @@ public class Simulation {
         return new Simulation(mowerAgents);
     }
 
-    public void run() throws InterruptedException {
-        mowerAgents.forEach(MowerAgent::runCommands);
-        for (MowerAgent mowerAgent : mowerAgents) {
-            mowerAgent.join();
-        }
+    public void run() {
+        ExecutorService executorService = Executors.newFixedThreadPool(mowerAgents.size());
+        mowerAgents.forEach(mowerAgent -> {
+            try {
+                String result = executorService.submit(mowerAgent).get();
+                System.out.println(result);
+            } catch (InterruptedException | ExecutionException e) {
+                e.printStackTrace();
+            }
+        });
     }
 }

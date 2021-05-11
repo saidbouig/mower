@@ -19,7 +19,7 @@ class MowerAgentTest {
         mower.applyBoundariesFrom(lawn);
 
         MowerAgent mowerAgent = MowerAgent.of(mower, lawn, asList(Instruction.F, Instruction.F));
-        mowerAgent.runCommands();
+        mowerAgent.call();
         assertEquals("0 1 N", mowerAgent.toString());
     }
 

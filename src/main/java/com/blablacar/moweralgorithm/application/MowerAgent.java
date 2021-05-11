@@ -3,8 +3,9 @@ package com.blablacar.moweralgorithm.application;
 import com.blablacar.moweralgorithm.domain.*;
 
 import java.util.List;
+import java.util.concurrent.Callable;
 
-public class MowerAgent extends Thread{
+public class MowerAgent implements Callable<String> {
     private final IMower mower;
     private final ILawn lawn;
     private final List<Instruction> instructions;
@@ -32,6 +33,18 @@ public class MowerAgent extends Thread{
 
     @Override
     public String toString() {
+        return mower.toString();
+    }
+
+    @Override
+    public String call(){
+        instructions.forEach(instruction -> {
+            switch (instruction)  {
+                case F : mower.moveToForward((Lawn) lawn); break;
+                case R : mower.rotateToRight(); break;
+                case L : mower.rotateToLeft(); break;
+            }
+        });
         return mower.toString();
     }
 }

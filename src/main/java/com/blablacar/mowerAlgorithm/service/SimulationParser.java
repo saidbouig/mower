@@ -2,7 +2,6 @@ package com.blablacar.mowerAlgorithm.service;
 
 import com.blablacar.mowerAlgorithm.domain.*;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -27,6 +26,6 @@ public class SimulationParser {
 
     public static Lawn parseLawn(String line) {
         var coordinates = line.split(" ");
-        return Lawn.of(Integer.parseInt(coordinates[0]), Integer.parseInt(coordinates[1]), Collections.emptyList());
+        return Lawn.of(Integer.parseInt(coordinates[0]), Integer.parseInt(coordinates[1]));
     }
 }

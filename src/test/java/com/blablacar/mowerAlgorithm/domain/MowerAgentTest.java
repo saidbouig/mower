@@ -1,5 +1,7 @@
 package com.blablacar.mowerAlgorithm.domain;
 
+import com.blablacar.mowerAlgorithm.service.Instruction;
+import com.blablacar.mowerAlgorithm.service.MowerAgent;
 import org.junit.jupiter.api.Test;
 
 import static java.util.Arrays.asList;
@@ -18,12 +20,7 @@ class MowerAgentTest {
 
         MowerAgent mowerAgent = MowerAgent.of(mower, lawn, asList(Instruction.F, Instruction.F));
         mowerAgent.runCommands();
-
-        assertEquals(Orientation.N, mowerAgent.getMower().getOrientation());
-        assertEquals(0, mowerAgent.getMower().getPosition().getX());
-        assertEquals(1, mowerAgent.getMower().getPosition().getY());
-
-
+        assertEquals("N 0 1", mowerAgent.toString());
     }
 
 }

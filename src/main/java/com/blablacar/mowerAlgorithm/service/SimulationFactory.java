@@ -10,6 +10,7 @@ public class SimulationFactory {
     public static Simulation create(List<String> lines) {
         Lawn lawn = SimulationParser.parseLawn(lines.get(0));
         List<Mower> mowers = new ArrayList<>();
+        lawn.setMowers(mowers);
         List<MowerAgent> agents = new ArrayList<>();
 
         for (var i = 1; i < lines.size(); i+=2) {

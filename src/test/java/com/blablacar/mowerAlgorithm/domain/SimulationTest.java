@@ -1,5 +1,8 @@
 package com.blablacar.mowerAlgorithm.domain;
 
+import com.blablacar.mowerAlgorithm.service.Instruction;
+import com.blablacar.mowerAlgorithm.service.MowerAgent;
+import com.blablacar.mowerAlgorithm.service.Simulation;
 import org.junit.jupiter.api.Test;
 
 import static java.util.Arrays.asList;
@@ -9,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class SimulationTest {
 
     @Test
-    public void should_run_simulation_with_one_mower(){
+    public void should_run_simulation_with_one_mower() throws InterruptedException {
         Mower mower = Mower.of(Position.of(0, 0), Orientation.N);
         Lawn lawn = Lawn.of(2, 2, singletonList(mower));
 
@@ -20,13 +23,11 @@ class SimulationTest {
 
         simulation.run();
 
-        assertEquals(mowerAgent.getMower().getOrientation(), Orientation.N);
-        assertEquals(mowerAgent.getMower().getPosition().getX(), 0);
-        assertEquals(mowerAgent.getMower().getPosition().getY(), 1);
+        assertEquals(mowerAgent.toString(), "N 0 1");
     }
 
     @Test
-    public void should_run_simulation_with_multiple_mowers(){
+    public void should_run_simulation_with_multiple_mowers() throws InterruptedException {
         Mower mower_1 = Mower.of(Position.of(0,0), Orientation.N);
         Mower mower_2 = Mower.of(Position.of(0,1), Orientation.S);
         Mower mower_3 = Mower.of(Position.of(1,1), Orientation.S);
@@ -44,17 +45,9 @@ class SimulationTest {
 
         simulation.run();
 
-        assertEquals(Orientation.N, mowerAgent_1.getMower().getOrientation());
-        assertEquals(0, mowerAgent_1.getMower().getPosition().getX());
-        assertEquals(0, mowerAgent_1.getMower().getPosition().getY());
-
-        assertEquals(Orientation.S, mowerAgent_2.getMower().getOrientation());
-        assertEquals(0, mowerAgent_2.getMower().getPosition().getX());
-        assertEquals(1, mowerAgent_2.getMower().getPosition().getY());
-
-        assertEquals(Orientation.W, mowerAgent_3.getMower().getOrientation());
-        assertEquals(1, mowerAgent_3.getMower().getPosition().getX());
-        assertEquals(0, mowerAgent_3.getMower().getPosition().getY());
+        assertEquals(mowerAgent_1.toString(), "N 0 0");
+        assertEquals(mowerAgent_2.toString(), "S 0 1");
+        assertEquals(mowerAgent_3.toString(), "W 1 0");
     }
 
 }

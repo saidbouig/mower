@@ -1,6 +1,5 @@
 package com.blablacar.mowerAlgorithm.service;
 
-import com.blablacar.mowerAlgorithm.domain.Simulation;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;

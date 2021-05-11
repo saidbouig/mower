@@ -1,4 +1,4 @@
-package com.blablacar.mowerAlgorithm.domain;
+package com.blablacar.mowerAlgorithm.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +15,10 @@ public class Simulation {
         return new Simulation(mowerAgents);
     }
 
-    public void run(){
+    public void run() throws InterruptedException {
         mowerAgents.forEach(MowerAgent::runCommands);
+        for (MowerAgent mowerAgent : mowerAgents) {
+            mowerAgent.join();
+        }
     }
 }

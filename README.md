@@ -1,6 +1,6 @@
 # mower
 
-[![Build Status](https://travis-ci.org/saidbouig/mower.svg?branch=master)](https://travis-ci.org/saidbouig/mower)
+[![Build Status](https://travis-ci.com/saidbouig/mower.svg?branch=master)](https://travis-ci.com/saidbouig/mower)
 [![Coverage Status](https://coveralls.io/repos/github/saidbouig/mower/badge.svg?branch=master)](https://coveralls.io/github/saidbouig/mower?branch=master)
 
 ## Used technologies

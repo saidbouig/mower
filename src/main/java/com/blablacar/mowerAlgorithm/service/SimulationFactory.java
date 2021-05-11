@@ -1,6 +1,7 @@
 package com.blablacar.mowerAlgorithm.service;
 
-import com.blablacar.mowerAlgorithm.domain.*;
+import com.blablacar.mowerAlgorithm.domain.Lawn;
+import com.blablacar.mowerAlgorithm.domain.Mower;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,8 +16,8 @@ public class SimulationFactory {
 
         for (var i = 1; i < lines.size(); i+=2) {
             Mower mower = SimulationParser.parseMower(lines.get(i), lawn);
-
             List<Instruction> instructions = SimulationParser.parseInstructions(lines.get(i+1));
+
             mower.applyBoundariesFrom(lawn);
             mowers.add(mower);
             agents.add(MowerAgent.of(mower, lawn, instructions));

@@ -20,7 +20,8 @@ public class Simulation {
     }
 
     public void run() throws InterruptedException {
-        ExecutorService executorService = Executors.newFixedThreadPool(mowerAgents.size());
+        int processors = Runtime.getRuntime().availableProcessors();
+        ExecutorService executorService = Executors.newFixedThreadPool(processors);
         try {
             executorService.invokeAll(mowerAgents).forEach(stringFuture -> {
                 try {

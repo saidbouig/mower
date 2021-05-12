@@ -26,22 +26,31 @@ public class Position {
         this.lawnBoundary = lawnBoundary;
     }
 
-    public static Position of(int x, int y){
-        return new Position(x,y);
+    public static Position of(int x, int y) {
+        return new Position(x, y);
     }
 
-    public static Position from(Position position){
+    public static Position from(Position position) {
         return new Position(
                 position.getX(),
                 position.getY(),
-                position.getLawnBoundary()!= null ? LawnBoundary.from(position.getLawnBoundary()): null);
+                position.getLawnBoundary() != null ? LawnBoundary.from(position.getLawnBoundary()) : null);
     }
-    public void moveBy(Orientation orientation){
+
+    public void moveBy(Orientation orientation) {
         switch (orientation) {
-            case N : incrementY(); break;
-            case E : incrementX(); break;
-            case S : decrementY(); break;
-            case W : decrementX(); break;
+            case N:
+                incrementY();
+                break;
+            case E:
+                incrementX();
+                break;
+            case S:
+                decrementY();
+                break;
+            case W:
+                decrementX();
+                break;
         }
     }
 

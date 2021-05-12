@@ -13,7 +13,7 @@ public class LawnBoundary {
         this.y_min = y_min;
     }
 
-    public static LawnBoundary of(int x_max_boundary, int y_max_boundary){
+    public static LawnBoundary of(int x_max_boundary, int y_max_boundary) {
         return new LawnBoundary(x_max_boundary, y_max_boundary, 0, 0);
     }
 

@@ -1,5 +1,6 @@
 package com.blablacar.moweralgorithm.domain;
 
+import java.util.Collections;
 import java.util.List;
 
 public class Lawn implements ILawn {
@@ -14,12 +15,12 @@ public class Lawn implements ILawn {
         this.mowers = mowers;
     }
 
-    public static Lawn of(int width, int height){
-        return new Lawn(width,height, null);
+    public static Lawn of(int width, int height) {
+        return new Lawn(width, height, Collections.emptyList());
     }
 
-    public static Lawn of(int width, int height, List<Mower> mowers){
-        return new Lawn(width,height, mowers);
+    public static Lawn of(int width, int height, List<Mower> mowers) {
+        return new Lawn(width, height, mowers);
     }
 
     public int getWidth() {
@@ -33,8 +34,8 @@ public class Lawn implements ILawn {
     @Override
     public boolean isAuthorizedToMove(Mower mower, Position previewPosition) {
         return mowers.stream()
-            .filter(m -> ! (m.equals(mower)))
-            .noneMatch(m -> m.getPosition().getX() == previewPosition.getX() && m.getPosition().getY() == previewPosition.getY());
+                .filter(m -> !(m.equals(mower)))
+                .noneMatch(m -> m.getPosition().getX() == previewPosition.getX() && m.getPosition().getY() == previewPosition.getY());
     }
 
     public void setMowers(List<Mower> mowers) {

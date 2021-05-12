@@ -15,9 +15,9 @@ public class SimulationFactory {
         lawn.setMowers(mowers);
         List<MowerAgent> agents = new ArrayList<>();
 
-        for (var i = 1; i < lines.size(); i+=2) {
+        for (var i = 1; i < lines.size(); i += 2) {
             Mower mower = SimulationParser.parseMower(lines.get(i), lawn);
-            List<Instruction> instructions = SimulationParser.parseInstructions(lines.get(i+1));
+            List<Instruction> instructions = SimulationParser.parseInstructions(lines.get(i + 1));
 
             mower.applyBoundariesFrom(lawn);
             mowers.add(mower);

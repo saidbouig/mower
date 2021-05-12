@@ -1,14 +1,12 @@
 # mower
 
 [![Build Status](https://travis-ci.com/saidbouig/mower.svg?branch=master)](https://travis-ci.com/saidbouig/mower)
-[![Coverage Status](https://coveralls.io/repos/github/saidbouig/mower/badge.svg?branch=master)](https://coveralls.io/github/saidbouig/mower?branch=master)
 
 ## Used technologies
 
     Java - JDK 11
     Maven
     Travis
-    Coveralls
        
    Tests: [JUnit 5](https://junit.org/junit5/)
    
@@ -33,7 +31,11 @@
     FFRFFRFRRF
 
 
-### Excpected output
+### Expected output
 
     1 3 N
     5 1 E
+
+## Mower Design
+
+![](mower_design.png)

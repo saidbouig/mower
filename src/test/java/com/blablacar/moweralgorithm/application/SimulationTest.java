@@ -1,8 +1,9 @@
-package com.blablacar.moweralgorithm.domain;
+package com.blablacar.moweralgorithm.application;
 
-import com.blablacar.moweralgorithm.application.Instruction;
-import com.blablacar.moweralgorithm.application.MowerAgent;
-import com.blablacar.moweralgorithm.application.Simulation;
+import com.blablacar.moweralgorithm.domain.Lawn;
+import com.blablacar.moweralgorithm.domain.Mower;
+import com.blablacar.moweralgorithm.domain.Orientation;
+import com.blablacar.moweralgorithm.domain.Position;
 import org.junit.jupiter.api.Test;
 
 import static java.util.Arrays.asList;

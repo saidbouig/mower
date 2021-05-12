@@ -15,7 +15,7 @@ import java.util.stream.Stream;
 public class SimulationParser {
 
     public static List<Instruction> parseInstructions(String line) {
-        String[] lines = line.split("");
+        var lines = line.split("");
         try {
             SimulationValidator.validateInstructions(lines);
             return Stream.of(lines)
@@ -30,9 +30,8 @@ public class SimulationParser {
         var lines = line.split("\\s");
         try {
             SimulationValidator.validateMower(lines, lawn);
-            Mower mower = Mower.of(Position.of(Integer.parseInt(lines[0]), Integer.parseInt(lines[1])),
+            return Mower.of(Position.of(Integer.parseInt(lines[0]), Integer.parseInt(lines[1])),
                     Orientation.valueOf(lines[2]));
-            return mower;
         } catch (Exception e) {
             throw new SimulationParserException(String.format("Error parsing Mower : %s %s", Arrays.toString(lines), e));
         }

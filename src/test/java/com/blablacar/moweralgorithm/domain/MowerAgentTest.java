@@ -14,11 +14,10 @@ class MowerAgentTest {
     public void should_execute_instructions() {
 
         Mower mower = Mower.of(Position.of(0, 0), Orientation.N);
-        Lawn lawn = Lawn.of(2, 2, singletonList(mower));
+        Lawn lawn = Lawn.of(1, 1, singletonList(mower));
 
         MowerAgent mowerAgent = MowerAgent.of(mower, lawn, asList(Instruction.F, Instruction.F));
         mowerAgent.call();
         assertEquals("0 1 N", mowerAgent.toString());
     }
-
 }

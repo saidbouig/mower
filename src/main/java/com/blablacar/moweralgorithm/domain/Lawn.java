@@ -36,7 +36,7 @@ public class Lawn implements ILawn {
         if (isWithinLawn(nextPosition)) {
             return mowers.stream()
                     .filter(m -> !(m.equals(mower)))
-                    .noneMatch(m -> m.getPosition().getX() == nextPosition.getX() && m.getPosition().getY() == nextPosition.getY());
+                    .noneMatch(m -> m.getPosition().equals(nextPosition));
 
         }
         return false;
@@ -44,7 +44,7 @@ public class Lawn implements ILawn {
 
     @Override
     public boolean isWithinLawn(Position nextPosition) {
-        return nextPosition.getX() >= 0 && nextPosition.getX() < width && nextPosition.getY() >= 0 && nextPosition.getY() < height;
+        return nextPosition.getX() >= 0 && nextPosition.getX() <= width && nextPosition.getY() >= 0 && nextPosition.getY() <= height;
     }
 
     public void setMowers(List<Mower> mowers) {

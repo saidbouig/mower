@@ -58,7 +58,7 @@ class MowerTest {
         Mower mower_1 = Mower.of(Position.of(0, 0), Orientation.N);
         Mower mower_2 = Mower.of(Position.of(0, 1), Orientation.N);
 
-        Lawn lawn = Lawn.of(2, 2, asList(mower_1, mower_2));
+        Lawn lawn = Lawn.of(1, 1, asList(mower_1, mower_2));
 
         mower_1.moveToForward(lawn);
         mower_2.moveToForward(lawn);

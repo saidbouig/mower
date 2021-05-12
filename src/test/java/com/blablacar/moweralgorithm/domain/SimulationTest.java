@@ -14,14 +14,14 @@ class SimulationTest {
     @Test
     public void should_run_simulation_with_one_mower() throws InterruptedException {
         Mower mower = Mower.of(Position.of(0, 0), Orientation.N);
-        Lawn lawn = Lawn.of(2, 2, singletonList(mower));
+        Lawn lawn = Lawn.of(1, 1, singletonList(mower));
 
         MowerAgent mowerAgent = MowerAgent.of(mower, lawn, asList(Instruction.F, Instruction.F));
         Simulation simulation = Simulation.of(singletonList(mowerAgent));
 
         simulation.run();
 
-        assertEquals(mowerAgent.toString(), "0 1 N");
+        assertEquals("0 1 N", mowerAgent.toString());
     }
 
     @Test
@@ -39,9 +39,9 @@ class SimulationTest {
 
         simulation.run();
 
-        assertEquals(mowerAgent_1.toString(), "0 0 N");
-        assertEquals(mowerAgent_2.toString(), "0 1 S");
-        assertEquals(mowerAgent_3.toString(), "1 0 W");
+        assertEquals("0 0 N", mowerAgent_1.toString());
+        assertEquals("0 1 S", mowerAgent_2.toString());
+        assertEquals("1 0 W", mowerAgent_3.toString());
     }
 
 }

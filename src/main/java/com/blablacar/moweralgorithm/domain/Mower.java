@@ -17,17 +17,17 @@ public class Mower implements IMower {
 
     @Override
     public void moveToForward(Lawn lawn) {
-        Position previewPosition = calculateNextPosition();
-        if (lawn.isAuthorizedToMove(this, previewPosition)) {
-            position = previewPosition;
+        Position nextPosition = calculateNextPosition();
+        if (lawn.isAuthorizedToMove(this, nextPosition)) {
+            position = nextPosition;
         }
     }
 
     @Override
     public Position calculateNextPosition() {
-        Position previewPosition = Position.from(position);
-        previewPosition.moveBy(orientation);
-        return previewPosition;
+        Position nextPosition = Position.from(position);
+        nextPosition.moveBy(orientation);
+        return nextPosition;
     }
 
     @Override

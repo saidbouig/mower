@@ -18,7 +18,7 @@ class SimulationFileReaderTest {
     @Test
     public void should_read_file() {
         SimulationFileReader simulationFileReader = new SimulationFileReader();
-        List<String> lines = simulationFileReader.read(getPath("mower.txt"));
+        List<String> lines = simulationFileReader.read(getPath("mowers.txt"));
         assertEquals("5 5 1 2 N LFLFLFLFF 3 3 E FFRFFRFRRF 0 1 E FFFFLFFF 1 0 N FFFFF".trim(), String.join(" ", lines));
     }
 

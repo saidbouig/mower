@@ -30,6 +30,7 @@ public class Simulation {
                     e.printStackTrace();
                 }
             });
+            executorService.shutdown();
         } catch (InterruptedException e) {
             executorService.shutdown();
             executorService.awaitTermination(10_000L, TimeUnit.MILLISECONDS);

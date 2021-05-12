@@ -16,24 +16,15 @@ public class Mower implements IMower {
     }
 
     @Override
-    public void applyBoundariesFrom(Lawn lawn) {
-        position.setLawnBoundary(LawnBoundary.of(lawn.getWidth(), lawn.getHeight()));
-    }
-
-    @Override
     public void moveToForward(Lawn lawn) {
-        if (position.getLawnBoundary() != null) {
-            Position previewPosition = previewMoveToForward();
-            if (previewPosition.isWithinLawnBoundaries() && lawn.isAuthorizedToMove(this, previewPosition)) {
-                position = previewPosition;
-            }
-        } else {
-            position.moveBy(orientation);
+        Position previewPosition = calculateNextPosition();
+        if (lawn.isAuthorizedToMove(this, previewPosition)) {
+            position = previewPosition;
         }
     }
 
     @Override
-    public Position previewMoveToForward() {
+    public Position calculateNextPosition() {
         Position previewPosition = Position.from(position);
         previewPosition.moveBy(orientation);
         return previewPosition;

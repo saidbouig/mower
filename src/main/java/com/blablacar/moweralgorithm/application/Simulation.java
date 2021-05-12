@@ -15,7 +15,7 @@ public class Simulation {
         this.mowerAgents = new ArrayList<>(mowerAgents);
     }
 
-    public static Simulation of(List<MowerAgent> mowerAgents){
+    public static Simulation of(List<MowerAgent> mowerAgents) {
         return new Simulation(mowerAgents);
     }
 
@@ -32,7 +32,7 @@ public class Simulation {
             });
         } catch (InterruptedException e) {
             executorService.shutdown();
-            executorService.awaitTermination(10_000L, TimeUnit.MILLISECONDS );
+            executorService.awaitTermination(10_000L, TimeUnit.MILLISECONDS);
         }
     }
 }

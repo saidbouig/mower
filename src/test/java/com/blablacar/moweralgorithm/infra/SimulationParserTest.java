@@ -13,23 +13,23 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SimulationParserTest {
 
     @Test
-    public void should_parse_lawn(){
-        Lawn lawn = Lawn.of(10,10);
-        Lawn parsedlawn = parseLawn("10 10");
-        assertEquals(parsedlawn.getWidth(), lawn.getWidth());
-        assertEquals(parsedlawn.getHeight(), lawn.getHeight());
+    public void should_parse_lawn() {
+        Lawn lawn = Lawn.of(10, 10);
+        Lawn parsedLawn = parseLawn("10 10");
+        assertEquals(parsedLawn.getWidth(), lawn.getWidth());
+        assertEquals(parsedLawn.getHeight(), lawn.getHeight());
     }
 
     @Test
-    public void should_parse_mower(){
-        Lawn lawn = Lawn.of(10,10);
+    public void should_parse_mower() {
+        Lawn lawn = Lawn.of(10, 10);
 
         Mower mower = parseMower("0 0 N", lawn);
-        assertEquals("0 0 N" , mower.toString());
+        assertEquals("0 0 N", mower.toString());
     }
 
     @Test
-    public void should_parse_instructions(){
+    public void should_parse_instructions() {
         List<Instruction> instructions = parseInstructions("LL");
         instructions.forEach(instruction -> assertEquals(instruction, Instruction.L));
     }

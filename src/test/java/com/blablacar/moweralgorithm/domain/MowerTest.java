@@ -22,7 +22,7 @@ class MowerTest {
         Lawn lawn = Lawn.of(10, 10, Collections.singletonList(mower));
         mower.moveToForward(lawn);
 
-        assertEquals("0 -1 S", mower.toString());
+        assertEquals("0 0 S", mower.toString());
     }
 
     @Test
@@ -45,7 +45,7 @@ class MowerTest {
     void should_stay_idle_when_move_forward_to_lawn_boundary() {
         Mower mower = Mower.of(Position.of(0, 0), Orientation.S);
         Lawn lawn = Lawn.of(2, 2, Collections.singletonList(mower));
-        mower.applyBoundariesFrom(lawn);
+
         mower.moveToForward(lawn);
         mower.moveToForward(lawn);
         mower.moveToForward(lawn);
@@ -60,10 +60,8 @@ class MowerTest {
 
         Lawn lawn = Lawn.of(2, 2, asList(mower_1, mower_2));
 
-        mower_1.applyBoundariesFrom(lawn);
-        mower_2.applyBoundariesFrom(lawn);
-
         mower_1.moveToForward(lawn);
+        mower_2.moveToForward(lawn);
 
         assertEquals("0 0 N", mower_1.toString());
         assertEquals("0 1 N", mower_2.toString());

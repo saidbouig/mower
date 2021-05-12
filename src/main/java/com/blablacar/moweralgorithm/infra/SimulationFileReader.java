@@ -11,9 +11,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
-public class SimulationFileReader{
+public class SimulationFileReader {
 
-    public SimulationFileReader()  {
+    public SimulationFileReader() {
     }
 
     public List<String> read(final String filePath) throws WrongFileException {

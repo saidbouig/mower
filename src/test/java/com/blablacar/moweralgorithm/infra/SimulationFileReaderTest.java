@@ -46,7 +46,6 @@ class SimulationFileReaderTest {
 
     }
 
-
     private String getPath(final String nameFile) {
         ClassLoader classLoader = getClass().getClassLoader();
         File file = new File(Objects.requireNonNull(classLoader.getResource(nameFile)).getFile());

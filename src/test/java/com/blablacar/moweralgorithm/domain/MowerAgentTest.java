@@ -16,8 +16,6 @@ class MowerAgentTest {
         Mower mower = Mower.of(Position.of(0, 0), Orientation.N);
         Lawn lawn = Lawn.of(2, 2, singletonList(mower));
 
-        mower.applyBoundariesFrom(lawn);
-
         MowerAgent mowerAgent = MowerAgent.of(mower, lawn, asList(Instruction.F, Instruction.F));
         mowerAgent.call();
         assertEquals("0 1 N", mowerAgent.toString());

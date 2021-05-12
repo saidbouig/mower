@@ -1,9 +1,9 @@
 package com.blablacar.moweralgorithm;
 
-import com.blablacar.moweralgorithm.infra.exception.WrongFileException;
 import com.blablacar.moweralgorithm.application.Simulation;
 import com.blablacar.moweralgorithm.application.SimulationFactory;
 import com.blablacar.moweralgorithm.infra.SimulationFileReader;
+import com.blablacar.moweralgorithm.infra.exception.WrongFileException;
 
 import java.util.List;
 

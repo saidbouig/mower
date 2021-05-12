@@ -19,7 +19,6 @@ public class SimulationFactory {
             Mower mower = SimulationParser.parseMower(lines.get(i), lawn);
             List<Instruction> instructions = SimulationParser.parseInstructions(lines.get(i + 1));
 
-            mower.applyBoundariesFrom(lawn);
             mowers.add(mower);
             agents.add(MowerAgent.of(mower, lawn, instructions));
         }

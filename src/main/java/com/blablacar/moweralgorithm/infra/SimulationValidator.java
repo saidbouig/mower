@@ -13,7 +13,7 @@ public class SimulationValidator {
             throw new SimulationParserException("Lawn size line is not valid (Provide 2 coordinates) : " + Arrays.toString(coordinates));
         }
 
-        if (Arrays.stream(coordinates).map(Integer::valueOf).anyMatch(integer -> integer < 0)){
+        if (Arrays.stream(coordinates).map(Integer::valueOf).anyMatch(integer -> integer < 0)) {
             throw new SimulationParserException("Lawn size line is not valid (Provide integer and positive coordinates) : " + Arrays.toString(coordinates));
         }
     }
@@ -26,24 +26,24 @@ public class SimulationValidator {
         int x = Integer.parseInt(lines[0]);
         int y = Integer.parseInt(lines[1]);
 
-        if (x > lawn.getWidth() || y > lawn.getHeight() || x < 0 || y < 0) {
+        if (x >= lawn.getWidth() || y >= lawn.getHeight() || x < 0 || y < 0) {
             throw new SimulationParserException("Mower position line is not valid (position out of lawn boundaries) : " + Arrays.toString(lines));
         }
-        try{
+        try {
             Orientation.valueOf(lines[2]);
-        }catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
             throw new SimulationParserException("Mower position Orientation is not valid ( N, S, E, W) : " + Arrays.toString(lines));
         }
     }
 
     public static void validateInstructions(String[] lines) {
-        if (lines.length <= 0 ) {
+        if (lines.length <= 0) {
             throw new SimulationParserException("No available Instructions : " + Arrays.toString(lines));
         }
-        try{
+        try {
             Arrays.stream(lines).forEach(Instruction::valueOf);
 
-        }catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
             throw new SimulationParserException("Instructions are not valid ( F,R,L) : " + Arrays.toString(lines));
         }
     }

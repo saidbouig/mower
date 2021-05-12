@@ -11,8 +11,8 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class SimulationFactoryTest {
     @Test
-    public void should_create_simulation(){
-        List<String> lines = Arrays.asList("5 5", "1 2 N", "LFLFLFLFF","3 3 N", "LFLFLFLFF");
+    public void should_create_simulation() {
+        List<String> lines = Arrays.asList("5 5", "1 2 N", "LFLFLFLFF", "3 3 N", "LFLFLFLFF");
 
         Simulation simulation = SimulationFactory.create(lines);
         assertNotNull(simulation);

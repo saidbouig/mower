@@ -9,6 +9,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Stream;
 
 public class SimulationFileReader {
@@ -41,7 +42,7 @@ public class SimulationFileReader {
 
     public String getPath(final String nameFile) {
         ClassLoader classLoader = getClass().getClassLoader();
-        File file = new File(classLoader.getResource(nameFile).getFile());
+        File file = new File(Objects.requireNonNull(classLoader.getResource(nameFile)).getFile());
         return file.getAbsolutePath();
     }
 }

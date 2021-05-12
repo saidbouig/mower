@@ -27,7 +27,7 @@ public class SimulationParser {
     }
 
     public static Mower parseMower(String line, Lawn lawn) {
-        var lines = line.split(" ");
+        var lines = line.split("\\s");
         try {
             SimulationValidator.validateMower(lines, lawn);
             Mower mower = Mower.of(Position.of(Integer.parseInt(lines[0]), Integer.parseInt(lines[1])),
@@ -39,7 +39,7 @@ public class SimulationParser {
     }
 
     public static Lawn parseLawn(String line) {
-        var coordinates = line.split(" ");
+        var coordinates = line.split("\\s");
         try {
             SimulationValidator.validateLawn(coordinates);
             return Lawn.of(Integer.parseInt(coordinates[0]), Integer.parseInt(coordinates[1]));

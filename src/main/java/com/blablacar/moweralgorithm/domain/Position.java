@@ -25,34 +25,18 @@ public class Position {
     public void moveBy(Orientation orientation) {
         switch (orientation) {
             case N:
-                incrementY();
+                y++;
                 break;
             case E:
-                incrementX();
+                x++;
                 break;
             case S:
-                decrementY();
+                y--;
                 break;
             case W:
-                decrementX();
+                x--;
                 break;
         }
-    }
-
-    public void incrementX() {
-        x++;
-    }
-
-    public void decrementX() {
-        x--;
-    }
-
-    public void incrementY() {
-        y++;
-    }
-
-    public void decrementY() {
-        y--;
     }
 
     public int getX() {

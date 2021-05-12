@@ -33,13 +33,18 @@ public class Lawn implements ILawn {
 
     @Override
     public boolean isAuthorizedToMove(Mower mower, Position nextPosition) {
-        if (nextPosition.getX() >= 0 && nextPosition.getX() < width && nextPosition.getY() >= 0 && nextPosition.getY() < height) {
+        if (isWithinLawn(nextPosition)) {
             return mowers.stream()
                     .filter(m -> !(m.equals(mower)))
                     .noneMatch(m -> m.getPosition().getX() == nextPosition.getX() && m.getPosition().getY() == nextPosition.getY());
 
         }
         return false;
+    }
+
+    @Override
+    public boolean isWithinLawn(Position nextPosition) {
+        return nextPosition.getX() >= 0 && nextPosition.getX() < width && nextPosition.getY() >= 0 && nextPosition.getY() < height;
     }
 
     public void setMowers(List<Mower> mowers) {
